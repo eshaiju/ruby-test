@@ -9,7 +9,9 @@ require 'time'
 def date_parser(object)
   parsed_time = JSON.parse(object)['time']
 
-  date = Time.parse(parsed_time).localtime.strftime("%Y-%m-%d %H:%M:%S %z")
+  in_localtime = Time.parse(parsed_time).localtime
+
+  in_localtime.strftime("%Y-%m-%d %H:%M:%S %z")
 end
 
 p date_parser("{\"time\":\"2022-06-17T05:52:39.787Z\"}")
